@@ -25,7 +25,6 @@ function criarcliente(){
   });
 }
 
-
 //read
 function lercliente(){
       console.table(cliente);
@@ -35,8 +34,46 @@ function lercliente(){
 //update
 function atualizarcliente(){
     console.table(cliente);
-    
+
+    readline.question('digite o numero (index) do cliente: ') , (index) => {
+if (cliente[index]){
+    readline.question("Escreva o novo nome: ",(novoNome) => {
+      readline.question("Escreva a nova idade: ", (novaIdade) =>{
+        readline.question("Escreva o novo genero: ", (novoGenero) =>{
+
+          cliente[index]= {
+            nome: novoNome,
+            idade: novaIdade,
+            genero: novoGenero
+          };
+          console.log ("Cliente atualizado");
+          lercliente();
+        });
+      });
+    });
+} else {
+  console.log("Erro");
+  lercliente();
 }
+    }
 
-criarcliente();
+    function apagarcliente(){
+      readline.question("digite o index do cliente que deseja apagar:", (index) => {
+let i= parseInt(index);
 
+if (i>= 0 && i < cliente.length){
+
+  let removido = cliente.splice(i,1);
+  console.log (`O cliente "${removido[0].nome}" foi removido.`);
+
+  lercliente();
+
+}else {
+  console.log("Erro");
+}
+      });
+    }
+
+  }
+
+  criarcliente();
