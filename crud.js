@@ -17,9 +17,8 @@ function criarcliente(){
 
         cliente.push(novoCliente);
         console.log("\n--- Cliente Cadastrado ---");
-        readline.close();
         
-        lercliente()
+        atualizarcliente()
       });
     });
   });
@@ -35,7 +34,7 @@ function lercliente(){
 function atualizarcliente(){
     console.table(cliente);
 
-    readline.question('digite o numero (index) do cliente: ') , (index) => {
+    readline.question('digite o numero (index) do cliente: ' , (index) => {
 if (cliente[index]){
     readline.question("Escreva o novo nome: ",(novoNome) => {
       readline.question("Escreva a nova idade: ", (novaIdade) =>{
@@ -48,13 +47,16 @@ if (cliente[index]){
           };
           console.log ("Cliente atualizado");
           lercliente();
+          apagarcliente()
         });
       });
     });
 } else {
   console.log("Erro");
   lercliente();
+  apagarcliente()
 }
+    });
     }
 
     function apagarcliente(){
@@ -74,6 +76,6 @@ if (i>= 0 && i < cliente.length){
       });
     }
 
-  }
+  
 
   criarcliente();
