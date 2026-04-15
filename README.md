@@ -1,1 +1,1 @@
-Treinando a linguagem js.
+Treinando a linguagem js, para futuros projetos.
